@@ -1,14 +1,24 @@
 #include <iostream>
-#include <algorithm>
 #include <string>
 #include <vector>
-#include <iterator>
+#include <sstream>
 #include "mymath.h"
 
-void StringToVector(std::string str, std::vector <int> v){
-    std::copy(str.begin(), str.end(), std::back_inserter(v));
-    for(int i=0; i<v.size(); i++){
-        std::cout<<v[i]<<" " ;
+std::vector<int> StringToVector(std::string str){
+    std::vector <int> vt;
+    std::stringstream ss;
+    ss << str;
+    std::string tg;
+    int a;
+    while (!ss.eof()) { 
+        ss >> tg;
+        if (std::stringstream(tg) >> a)
+            vt.push_back(a);
+        tg="";
     }
-    std::cout <<"\n";
+    for(int i=0; i<vt.size(); i++){
+        std::cout<<vt[i]<<" " ;
+    }
+        std::cout<<"\n" ;
+    return vt;
 }

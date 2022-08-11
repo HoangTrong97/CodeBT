@@ -1,32 +1,44 @@
-LIB_TARGETA=libutils.a
-LIB_TARGETSO=libutils.so
 TARGET=My_sort_algorithm
+
 CUR_DIC=$(abspath $(lastword $(CURDIR)/../))
-SRCS_DIR=$(CUR_DIC)/utils
-SCR_DIR=$(CUR_DIC)
+
+UTILS_DIR = $(CUR_DIC)/utils
+SRC_UTILS =$(wildcard $(UTILS_DIR)/*.cpp)
+OBJS_UTILS_NOT_DIR=$(notdir $(patsubst %.cpp,%.o,$(SRC_UTILS)))
+
+OBJS_UTILS_DIR = $(CUR_DIC)/build/
+OBJS_UTILS=$(addprefix $(OBJS_UTILS_DIR), $(OBJS_UTILS_NOT_DIR))
+
 LIB_DIR=$(CUR_DIC)/build/libs
-
-
-SRCS_INC=string_utils.cpp math_utils.cpp
-OBJS_INC=$(patsubst %.cpp,%.o,$(SRCS_INC))
+LIB_TARGETA=$(LIB_DIR)/libutils.a
+LIB_TARGETSO=$(LIB_DIR)/libutils.so
 
 SRCS= main.cpp	string_utils.cpp	math_utils.cpp
 OBJS=$(patsubst %.cpp,%.o,$(SRCS))
 
 
-VPATH= $(SRCS_DIR)	$(SCR_DIR)	
 
-CPPFLAGS += -I$(SRCS_DIR) -fPIC	
+OBJS_INC=$(patsubst %.cpp,%.o,$(SRCS_INC))
 
-$(TARGET):	$(OBJS)
+SRCS= main.cpp	string_utils.cpp	math_utils.cpp
+OBJS=$(patsubst %.cpp,%.o,$(SRCS))
+
+VPATH= $(CUR_DIC)
+
+#VPATH= $(SRCS_DIR)	$(SCR_DIR)	
+
+#CPPFLAGS += -I$(SRCS_DIR) -fPIC	
+
+$(TARGET):	$(OBJS)	
 #	g++	$(CPPFLAGS)	$(OBJS)	-L$(LIB_DIR)	-o	$(TARGET)	
 	g++ $^	 -L$(LIB_DIR)	-lutils -o $(TARGET)
 
 liba: $(OBJS_INC)
-	ar rcs	$(LIB_DIR)/$(LIB_TARGETA)	$(OBJS_INC)
+	g++ -c $(SRC_UTILS)
+	ar rcs	$(LIB_TARGETA) $(OBJS_UTILS)
 libso: $(OBJS_INC)
-
-	g++	-o	$(LIB_DIR)/$(LIB_TARGETSO)	$(OBJS_INC)	-shared
+	g++ -fPIC -c $(SRC_UTILS)
+	g++	-shared -o $(LIB_TARGETSO) $(OBJS_UTILS)
 
 clean:
-	rm	$(TARGET) $(LIB_DIR)/$(LIB_TARGETA)	$(OBJS)	$(LIB_DIR)$(LIB_TARGETSO) $(OBJS_INC)
+	rm	$(TARGET)	$(LIB_TARGETA) $(OBJS) $(LIB_TARGETSO) $(OBJS_UTILS)

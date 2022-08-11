@@ -6,11 +6,15 @@ void input_a(int a[], int n){
         std::cin>>a[i];
     }
 }
+
+
 void output(int a[], int n){
     for(int i=0; i<n; i++){
         std::cout << a[i] <<" ";
     }
 }
+
+
 void SXTD(int a[], int n){
     int tg;
     for(int i=0; i<n; i++){
@@ -24,6 +28,7 @@ void SXTD(int a[], int n){
         }
     }
 }
+
 
 int main(){
     int n;

@@ -1,21 +1,21 @@
 #include<iostream>
 #include "mymath.h"
-void InsertionSort(int a[], int n){
+#include <vector>
+void InsertionSort(std::vector <int> v){
  int i, key, j;
-   for (i = 1; i < n; i++)
+   for (i = 1; i <v.size(); i++)
    {
-       key = a[i];
+       key = v[i];
        j = i-1;
-       while (j >= 0 && a[j] > key)
+       while (j >= 0 && v[j] > key)
        {
-           a[j+1] = a[j];
+           v[j+1] = v[j];
            j = j-1;
        }
-       a[j+1] = key;
+       v[j+1] = key;
    }
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i <v.size(); i++)
     {
-        std::cout <<a[i]<<" ";
+        std::cout <<v[i]<<" ";
     }
-    
 }
