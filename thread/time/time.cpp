@@ -42,7 +42,6 @@ void set_time(int &h, int &m, int &s, int &count)
                 int b=0;
                 stringstream str1num(t); 
                 str1num >> b;
- //           cout<<b;
                 tg= tg*10+b;
             }
             if(hh==0){
@@ -76,8 +75,6 @@ void set_time(int &h, int &m, int &s, int &count)
     else{
         cout<<"Set time to: "<<h<<":"<<m<<":"<<s<<endl;  
     }   
- //   cout<<"Set time to: "<<h<<":"<<m<<":"<<s<<"\n";
-
 }
 
 }

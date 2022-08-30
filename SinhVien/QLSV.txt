@@ -1,0 +1,6 @@
+1	Duong	1995	binh thuan	Truc 3 5
+2	Nam	1999	hai duong	Truc 2 4
+3	hao	1988	can tho	Truc 3 5
+4	Nhu	1999	ca mau		Truc 2 4
+5	phu	2000	kien giang	Truc 3 5
+6	Trong	1997	binh duong	Truc 2 4
