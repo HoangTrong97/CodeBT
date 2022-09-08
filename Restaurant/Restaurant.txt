@@ -1,0 +1,16 @@
+add 12 a 1 tai 
+add 12 b 1 tai 
+add 13 c 
+add 13 d 
+add 14 c nhu 
+add 14 d nhu 
+add 15 s 1  
+add 15 v 1 
+ser	tai	a
+ser	15	s
+ser	13	c
+ser	nhu	c
+ser	tai	b
+ser	15	v
+ser	13	d
+ser	nhu	d

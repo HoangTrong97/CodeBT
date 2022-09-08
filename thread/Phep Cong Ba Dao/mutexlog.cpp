@@ -32,5 +32,4 @@ int main()
     }
     cout << "Global Count = " << global_count<<"\n";
     return 0;
-
 }

@@ -15,8 +15,7 @@ void add(int count, int interval_ms)
         coutmutex.lock();
         usleep(interval_ms * 1000);
         coutmutex.unlock();
-        coutmutex.lock();
-        
+        coutmutex.lock();       
     }
     
 }
